@@ -218,7 +218,7 @@ lay2.parentNode.removeChild(lay2)
 //lay1.parentNode.removeChild(lay2)//Removes the game screen..username only will be there
 lay3.parentNode.removeChild(lay3)
 let layout=document.querySelector(".body")
-let highScores=JSON.parse(localStorage.getItem("highScores")) || [];
+let high_Scores=JSON.parse(localStorage.getItem("high_Scores")) || [];
 restart.addEventListener("click",function (){
     window.location.reload();
 })
@@ -395,15 +395,15 @@ function savehighscore(){
         Username:userName.value,
         Points: scoreupdate()
     }
-    highScores.push(data);
-    highScores.sort((a,b)=> b.Points-a.Points);
-    highScores.splice(1);
-    localStorage.setItem("highScores",JSON.stringify(highScores));
+    high_Scores.push(data);
+    high_Scores.sort((a,b)=> b.Points-a.Points);
+    high_Scores.splice(1);
+    localStorage.setItem("high_Scores",JSON.stringify(high_Scores));
     disbestscore();
 
 }
 function disbestscore(){
-    bestscore.textContent=`BEST SCORE : ${highScores.map(function(a) {return a.Points;})}`
+    bestscore.textContent=`BEST SCORE : ${high_Scores.map(function(a) {return a.Points;})}`
 }
 
 
